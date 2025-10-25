@@ -1,16 +1,50 @@
-# React + Vite
+# 🌌 Solar System Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive 3D Solar System simulator built with **React** and **React Three Fiber**.  
+Explore the Sun and planets with a free camera and animated orbits.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** – Declarative UI  
+- **React Three Fiber** – Three.js integration in React  
+- **Three.js** – 3D rendering engine  
+- **Drei** – Helpers for controls, lights, and more  
+- **Vite** – Fast bundler for development
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Rotating Sun with emissive light  
+- Planets with distinct orbits and speeds  
+- Interactive orbital camera (rotate, zoom)  
+- Gradient space background for depth effect  
+- Easily extendable: add planets, rings, or textures
 
-## Expanding the ESLint configuration
+## Local Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:  
+```
+git clone https://github.com/yourusername/solar-system-sim.git
+
+2.Enter the project folder:
+cd solar-system-sim
+
+3.Install dependencies:
+npm install
+
+4.Run the development server:
+npm run dev
+
+5.Open in your browser:
+http://localhost:5173
+
+Production Build
+npm run build
+
+The build output is in the dist/ folder, ready to deploy on Netlify or any hosting platform.
+
+Screenshots / Demo
+WIP
+
+About the Project
+This project combines programming and 3D visualization, showcasing skills in React, Three.js, animations, and interactive UI design.
+Ideal for a portfolio to demonstrate technical projects with visual impact.
