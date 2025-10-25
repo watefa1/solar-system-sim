@@ -1,14 +1,13 @@
 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Sol -->
-  <circle cx="100" cy="100" r="18" fill="#FFCC33"></circle>
+  <circle cx="100" cy="100" r="22" fill="#FFE38F"></circle>
 
-  <!-- Órbitas -->
-  <circle cx="100" cy="100" r="40" stroke="#888" stroke-width="2" fill="none"></circle>
-  <circle cx="100" cy="100" r="65" stroke="#888" stroke-width="2" fill="none"></circle>
-  <circle cx="100" cy="100" r="90" stroke="#888" stroke-width="2" fill="none"></circle>
+  <!-- Órbita principal -->
+  <circle cx="100" cy="100" r="70" stroke="#E2E2E2" stroke-width="8" fill="none"></circle>
 
-  <!-- Planetas -->
-  <circle cx="100" cy="60" r="6" fill="#5AB4FF"></circle>
-  <circle cx="160" cy="100" r="7" fill="#FF7A7A"></circle>
-  <circle cx="100" cy="190" r="9" fill="#85FF93"></circle>
+  <!-- Tierra -->
+  <circle cx="100" cy="30" r="14" fill="#A9D8FF" stroke="#ffffff" stroke-width="4"></circle>
+
+  <!-- Luna (más a la derecha y un poco más abajo) -->
+  <circle cx="130" cy="15" r="6" fill="#F7F7F7" stroke="#ffffff" stroke-width="2"></circle>
 </svg>
