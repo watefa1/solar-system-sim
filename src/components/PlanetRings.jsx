@@ -6,7 +6,7 @@ import * as THREE from "three";
 export default function PlanetRings({ 
   innerRadius = 2, 
   outerRadius = 3, 
-  segments = 32,
+  segments = 64,
   opacity = 0.6,
   color = "#cccccc" 
 }) {
@@ -21,7 +21,7 @@ export default function PlanetRings({
   return (
     <group ref={ringsRef}>
       <Torus 
-        args={[(innerRadius + outerRadius) / 2, (outerRadius - innerRadius) / 2, 2, segments]}
+        args={[(innerRadius + outerRadius) / 2, (outerRadius - innerRadius) / 2, 4, segments]}
         rotation={[Math.PI / 2, 0, 0]}
       >
         <meshStandardMaterial

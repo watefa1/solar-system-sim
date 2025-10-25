@@ -56,7 +56,7 @@ export default function EnhancedPlanet({
         {/* Planeta clickeable */}
         <Sphere 
           ref={planetRef} 
-          args={[size, 16, 16]}
+          args={[size, 32, 32]}
           onClick={handleClick}
           onPointerDown={handleClick}
           onDoubleClick={handleClick}
@@ -75,7 +75,7 @@ export default function EnhancedPlanet({
 
         {/* Glow de selección */}
         {isSelected && (
-          <Sphere ref={glowRef} args={[size * 1.2, 16, 16]}>
+          <Sphere ref={glowRef} args={[size * 1.2, 32, 32]}>
             <meshBasicMaterial
               color={color}
               transparent
@@ -88,7 +88,7 @@ export default function EnhancedPlanet({
 
         {/* Indicador de hover */}
         {hovered && (
-          <Sphere args={[size * 1.1, 16, 16]}>
+          <Sphere args={[size * 1.1, 32, 32]}>
             <meshBasicMaterial
               color="#ffffff"
               transparent

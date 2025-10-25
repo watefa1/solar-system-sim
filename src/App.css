@@ -6,15 +6,29 @@ body, html, #root, .scene-container {
   overflow: hidden;
   font-family: 'Arial', sans-serif;
   cursor: default;
+  /* Mejoras de calidad visual */
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .scene-container {
   position: relative;
+  /* Mejoras de calidad */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* Cursor para elementos clickeables */
 canvas {
   cursor: grab;
+  /* Mejoras de calidad para canvas */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 canvas:active {

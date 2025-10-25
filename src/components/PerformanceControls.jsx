@@ -13,7 +13,8 @@ export default function PerformanceControls({
     starCount: 'medium',    // low, medium, high
     effects: false,
     orbits: true,
-    frameRate: 60
+    frameRate: 60,
+    showFPS: false          // Nuevo: mostrar FPS oculto por defecto
   });
 
   const handleSettingChange = (key, value) => {
@@ -124,7 +125,7 @@ export default function PerformanceControls({
           </div>
 
           {/* Toggle efectos */}
-          <div style={{ marginBottom: "15px" }}>
+          <div style={{ marginBottom: "10px" }}>
             <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
               <input 
                 type="checkbox"
@@ -133,6 +134,19 @@ export default function PerformanceControls({
                 style={{ marginRight: "8px" }}
               />
               ✨ Efectos Visuales
+            </label>
+          </div>
+
+          {/* Toggle FPS */}
+          <div style={{ marginBottom: "15px" }}>
+            <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+              <input 
+                type="checkbox"
+                checked={settings.showFPS}
+                onChange={(e) => handleSettingChange('showFPS', e.target.checked)}
+                style={{ marginRight: "8px" }}
+              />
+              📊 Mostrar FPS
             </label>
           </div>
 
@@ -146,6 +160,7 @@ export default function PerformanceControls({
                 onClick={() => {
                   handleSettingChange('planetDetail', 'low');
                   handleSettingChange('starCount', 'low');
+                  handleSettingChange('showFPS', false);
                   onToggleEffects(false);
                 }}
                 style={{
@@ -165,6 +180,7 @@ export default function PerformanceControls({
                 onClick={() => {
                   handleSettingChange('planetDetail', 'medium');
                   handleSettingChange('starCount', 'medium');
+                  handleSettingChange('showFPS', false);
                   onToggleEffects(false);
                 }}
                 style={{
@@ -184,6 +200,7 @@ export default function PerformanceControls({
                 onClick={() => {
                   handleSettingChange('planetDetail', 'high');
                   handleSettingChange('starCount', 'high');
+                  handleSettingChange('showFPS', true);
                   onToggleEffects(true);
                 }}
                 style={{

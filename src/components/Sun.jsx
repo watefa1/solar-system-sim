@@ -38,7 +38,7 @@ export default function Sun({ onPlanetClick, isSelected = false }) {
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
-        <sphereGeometry args={[2, 32, 32]} />
+        <sphereGeometry args={[2, 64, 64]} />
         <meshStandardMaterial 
           emissive={hovered ? "#ffcc00" : "#ffaa00"} 
           emissiveIntensity={hovered ? 2.5 : 2}
@@ -48,7 +48,7 @@ export default function Sun({ onPlanetClick, isSelected = false }) {
       
       {/* Glow básico del sol */}
       <mesh scale={1.1}>
-        <sphereGeometry args={[2, 16, 16]} />
+        <sphereGeometry args={[2, 32, 32]} />
         <meshBasicMaterial
           color="#ff6600"
           transparent
@@ -61,7 +61,7 @@ export default function Sun({ onPlanetClick, isSelected = false }) {
       {/* Glow de selección */}
       {isSelected && (
         <mesh ref={glowRef} scale={1.3}>
-          <sphereGeometry args={[2, 16, 16]} />
+          <sphereGeometry args={[2, 32, 32]} />
           <meshBasicMaterial
             color="#ffaa00"
             transparent
@@ -75,7 +75,7 @@ export default function Sun({ onPlanetClick, isSelected = false }) {
       {/* Indicador de hover */}
       {hovered && (
         <mesh scale={1.2}>
-          <sphereGeometry args={[2, 16, 16]} />
+          <sphereGeometry args={[2, 32, 32]} />
           <meshBasicMaterial
             color="#ffffff"
             transparent

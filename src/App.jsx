@@ -15,18 +15,21 @@ import { Suspense, useState } from "react";
 function App() {
   const [showOrbits, setShowOrbits] = useState(true);
   const [showEffects, setShowEffects] = useState(false);
+  const [showFPS, setShowFPS] = useState(false);
   const [selectedPlanet, setSelectedPlanet] = useState(null);
   const [performanceSettings, setPerformanceSettings] = useState({
     planetDetail: 'medium',
     starCount: 'medium',
     effects: false,
-    orbits: true
+    orbits: true,
+    showFPS: false
   });
 
   const handleSettingsChange = (newSettings) => {
     setPerformanceSettings(newSettings);
     setShowEffects(newSettings.effects);
     setShowOrbits(newSettings.orbits);
+    setShowFPS(newSettings.showFPS);
   };
 
   const handlePlanetClick = (planetName) => {
@@ -66,15 +69,18 @@ function App() {
       <Canvas 
         camera={{ position: [0, 15, 30], fov: 45 }}
         gl={{ 
-          antialias: false,
+          antialias: true,
           alpha: false,
           powerPreference: "high-performance",
           stencil: false,
-          depth: true
+          depth: true,
+          precision: "highp",
+          preserveDrawingBuffer: false
         }}
-        dpr={[0.5, 1.5]}
+        dpr={[1, 2]}
         frameloop="always"
         performance={{ min: 0.5 }}
+        shadows={false}
       >
         {/* Fondo del espacio */}
         <color attach="background" args={["#000011"]} />
@@ -84,27 +90,33 @@ function App() {
           <SpaceBackground count={performanceSettings.starCount === 'low' ? 500 : performanceSettings.starCount === 'high' ? 2000 : 1000} />
           
           {/* Luces optimizadas */}
-          <ambientLight intensity={0.3} color="#ffffff" />
+          <ambientLight intensity={0.4} color="#ffffff" />
           <directionalLight 
             position={[0, 0, 5]} 
-            intensity={0.5} 
+            intensity={0.6} 
             color="#ffffff"
             castShadow={false}
+          />
+          <hemisphereLight 
+            skyColor="#ffffff" 
+            groundColor="#444444" 
+            intensity={0.2} 
           />
           
           {/* Controles optimizados */}
           <OrbitControls 
             enableDamping 
-            dampingFactor={0.1}
+            dampingFactor={0.05}
             minDistance={5}
             maxDistance={100}
             enablePan={true}
             enableZoom={true}
             enableRotate={true}
             maxPolarAngle={Math.PI}
-            rotateSpeed={0.5}
-            zoomSpeed={1.2}
-            panSpeed={0.8}
+            rotateSpeed={0.3}
+            zoomSpeed={0.8}
+            panSpeed={0.5}
+            screenSpacePanning={false}
           />
 
           {/* Órbitas visuales opcionales */}
@@ -258,8 +270,8 @@ function App() {
           </EffectComposer>
         )}
         
-        {/* Stats para debugging */}
-        <Stats showPanel={0} className="stats" />
+        {/* Stats para debugging - opcional */}
+        {showFPS && <Stats showPanel={0} className="stats" />}
       </Canvas>
       
       {/* Debug: Indicador de clicks */}
@@ -291,6 +303,7 @@ function App() {
       }}>
         🎮 Modo: {performanceSettings.planetDetail === 'low' ? 'Rendimiento' : 
                    performanceSettings.planetDetail === 'high' ? 'Calidad' : 'Balanceado'}
+        {showFPS && <><br />📊 FPS visible</>}
       </div>
 
       {/* Indicador de planeta seleccionado */}

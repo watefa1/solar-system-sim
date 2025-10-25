@@ -52,7 +52,7 @@ export default function Earth({
       {/* Tierra clickeable */}
       <Sphere 
         ref={earthRef} 
-        args={[scale, 32, 32]} 
+        args={[scale, 64, 64]} 
         position={[distance, 0, 0]}
         onClick={handleClick}
         onPointerDown={handleClick}
@@ -70,7 +70,7 @@ export default function Earth({
       </Sphere>
 
       {/* Atmósfera simplificada */}
-      <Sphere args={[scale * 1.03, 16, 16]} position={[distance, 0, 0]}>
+      <Sphere args={[scale * 1.03, 32, 32]} position={[distance, 0, 0]}>
         <meshBasicMaterial
           color="#87CEEB"
           transparent
@@ -82,7 +82,7 @@ export default function Earth({
 
       {/* Glow de selección */}
       {isSelected && (
-        <Sphere ref={glowRef} args={[scale * 1.2, 16, 16]} position={[distance, 0, 0]}>
+        <Sphere ref={glowRef} args={[scale * 1.2, 32, 32]} position={[distance, 0, 0]}>
           <meshBasicMaterial
             color="#4169e1"
             transparent
@@ -95,7 +95,7 @@ export default function Earth({
 
       {/* Indicador de hover */}
       {hovered && (
-        <Sphere args={[scale * 1.15, 16, 16]} position={[distance, 0, 0]}>
+        <Sphere args={[scale * 1.15, 32, 32]} position={[distance, 0, 0]}>
           <meshBasicMaterial
             color="#ffffff"
             transparent
@@ -110,7 +110,7 @@ export default function Earth({
       <group ref={moonOrbitRef} position={[distance, 0, 0]}>
         <Sphere 
           ref={moonRef} 
-          args={[scale * 0.27, 16, 16]} 
+          args={[scale * 0.27, 32, 32]} 
           position={[2.5, 0, 0]}
           onClick={handleMoonClick}
           onPointerOver={() => {}}
