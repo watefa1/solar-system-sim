@@ -2,6 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { Sphere } from "@react-three/drei";
 import PlanetRings from "./PlanetRings";
+import PlanetLabel from "./PlanetLabel";
 import * as THREE from "three";
 
 export default function EnhancedPlanet({ 
@@ -108,6 +109,15 @@ export default function EnhancedPlanet({
             segments={32}
           />
         )}
+
+        {/* Etiqueta con el nombre del planeta */}
+        <PlanetLabel
+          planetName={planetName}
+          position={[0, 0, 0]}
+          offset={[0, size + 1.0, 0]}
+          color="#ffffff"
+          fontSize={Math.max(0.25, size * 0.4)}
+        />
       </group>
     </group>
   );

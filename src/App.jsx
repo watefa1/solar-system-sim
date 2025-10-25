@@ -269,11 +269,8 @@ function App() {
         right: "50%",
         transform: "translateX(50%)",
         color: "white",
-        fontSize: "14px",
-        background: "rgba(0,0,0,0.8)",
+        fontSize: "27px",
         padding: "8px 15px",
-        borderRadius: "6px",
-        border: "1px solid #4169e1",
         fontFamily: "Arial",
         zIndex: 999
       }}>

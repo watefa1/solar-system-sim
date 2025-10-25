@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Sphere } from "@react-three/drei";
+import PlanetLabel from "./PlanetLabel";
 import * as THREE from "three";
 
 export default function Earth({ 
@@ -121,7 +122,25 @@ export default function Earth({
             metalness={0.05}
           />
         </Sphere>
+
+        {/* Etiqueta de la Luna */}
+        <PlanetLabel
+          planetName="Luna"
+          position={[2.5, 0, 0]}
+          offset={[0, scale * 0.27 + 0.6, 0]}
+          color="#e6e6e6"
+          fontSize={0.18}
+        />
       </group>
+
+      {/* Etiqueta de la Tierra */}
+      <PlanetLabel
+        planetName="Tierra"
+        position={[distance, 0, 0]}
+        offset={[0, scale + 1.0, 0]}
+        color="#87CEEB"
+        fontSize={Math.max(0.25, scale * 0.4)}
+      />
     </group>
   );
 }

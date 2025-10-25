@@ -1,5 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
+import PlanetLabel from "./PlanetLabel";
 import * as THREE from "three";
 
 export default function Sun({ onPlanetClick, isSelected = false }) {
@@ -92,6 +93,15 @@ export default function Sun({ onPlanetClick, isSelected = false }) {
         color="#ffffff"
         distance={100}
         decay={2}
+      />
+
+      {/* Etiqueta del Sol */}
+      <PlanetLabel
+        planetName="Sol"
+        position={[0, 0, 0]}
+        offset={[0, 3.5, 0]}
+        color="#FFD700"
+        fontSize={0.5}
       />
     </group>
   );
