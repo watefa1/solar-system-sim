@@ -38,6 +38,14 @@ export default function Earth({
     }
   };
 
+  const handleMoonClick = (event) => {
+    event.stopPropagation();
+    console.log("Luna clicked!"); // Debug
+    if (onPlanetClick) {
+      onPlanetClick('luna');
+    }
+  };
+
   return (
     <group ref={orbitRef}>
       {/* Tierra clickeable */}
@@ -97,9 +105,16 @@ export default function Earth({
         </Sphere>
       )}
 
-      {/* Luna */}
+      {/* Luna clickeable */}
       <group ref={moonOrbitRef} position={[distance, 0, 0]}>
-        <Sphere ref={moonRef} args={[scale * 0.27, 16, 16]} position={[2.5, 0, 0]}>
+        <Sphere 
+          ref={moonRef} 
+          args={[scale * 0.27, 16, 16]} 
+          position={[2.5, 0, 0]}
+          onClick={handleMoonClick}
+          onPointerOver={() => {}}
+          onPointerOut={() => {}}
+        >
           <meshStandardMaterial 
             color="#c0c0c0" 
             roughness={0.95} 

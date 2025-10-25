@@ -17,6 +17,7 @@ export default function SolarSystemUI({ onPlanetClick, selectedPlanet }) {
     { name: "Mercurio", key: "mercurio", distance: "0.39 AU", period: "88 días", color: "#b8a082" },
     { name: "Venus", key: "venus", distance: "0.72 AU", period: "225 días", color: "#ff8c55" },
     { name: "Tierra", key: "tierra", distance: "1.00 AU", period: "365 días", color: "#2E7DD2" },
+    { name: "🌙 Luna", key: "luna", distance: "384,400 km", period: "27.3 días", color: "#c0c0c0" },
     { name: "Marte", key: "marte", distance: "1.52 AU", period: "687 días", color: "#ff6347" },
     { name: "Júpiter", key: "jupiter", distance: "5.20 AU", period: "12 años", color: "#ff8c42" },
     { name: "Saturno", key: "saturno", distance: "9.54 AU", period: "29 años", color: "#ffde7a" },

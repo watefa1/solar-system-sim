@@ -262,27 +262,6 @@ function App() {
         <Stats showPanel={0} className="stats" />
       </Canvas>
       
-      {/* Debug: Botón de prueba */}
-      <button 
-        onClick={() => handlePlanetClick('tierra')}
-        style={{
-          position: "absolute",
-          top: "10px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          padding: "8px 16px",
-          background: "rgba(0,255,0,0.8)",
-          border: "none",
-          color: "white",
-          borderRadius: "6px",
-          cursor: "pointer",
-          fontSize: "12px",
-          zIndex: 1000
-        }}
-      >
-        🧪 Test Tierra
-      </button>
-
       {/* Debug: Indicador de clicks */}
       <div style={{
         position: "absolute",

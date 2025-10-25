@@ -1,4 +1,14 @@
 import { useEffect } from "react";
+import moonImage from "../assets/real-images/moon.jpg";
+import jupiterImage from "../assets/real-images/jupiter.jpg";
+import marteImage from "../assets/real-images/marte.jpg";
+import mercurioImage from "../assets/real-images/mercurio.jpg";
+import uranoImage from "../assets/real-images/urano.jpg";
+import tierraImage from "../assets/real-images/tierra.jpg";
+import venusImage from "../assets/real-images/venus.jpg";
+import saturnoImage from "../assets/real-images/saturno.jpg";
+import solImage from "../assets/real-images/sol.jpg";
+import neptuneImage from "../assets/real-images/neptune.jpg";
 
 const planetData = {
   sol: {
@@ -9,6 +19,8 @@ const planetData = {
     temperature: "5,778 K (superficie)",
     composition: "73% Hidrógeno, 25% Helio",
     age: "4.6 mil millones de años",
+    realImage: solImage,
+    source: "https://science.nasa.gov/sun/",
     facts: [
       "Contiene el 99.86% de la masa del sistema solar",
       "Su núcleo alcanza 15 millones de grados Celsius",
@@ -25,6 +37,8 @@ const planetData = {
     distance: "57.9 millones de km del Sol",
     period: "88 días terrestres",
     temperature: "427°C (día) / -173°C (noche)",
+    realImage: mercurioImage,
+    source: "https://science.nasa.gov/mercury/",
     facts: [
       "El planeta más pequeño del sistema solar",
       "No tiene atmósfera ni lunas",
@@ -41,6 +55,8 @@ const planetData = {
     distance: "108.2 millones de km del Sol",
     period: "225 días terrestres",
     temperature: "462°C (promedio)",
+    realImage: venusImage,
+    source: "https://science.nasa.gov/venus/",
     facts: [
       "El planeta más caliente del sistema solar",
       "Rota en sentido contrario a la mayoría de planetas",
@@ -57,6 +73,8 @@ const planetData = {
     distance: "149.6 millones de km del Sol",
     period: "365.25 días",
     temperature: "15°C (promedio)",
+    realImage: tierraImage,
+    source: "https://science.nasa.gov/earth/facts/",
     facts: [
       "El único planeta conocido con vida",
       "71% de su superficie está cubierta de agua",
@@ -74,6 +92,8 @@ const planetData = {
     distance: "227.9 millones de km del Sol",
     period: "687 días terrestres",
     temperature: "-65°C (promedio)",
+    realImage: marteImage,
+    source: "https://science.nasa.gov/mars/",
     facts: [
       "Conocido como el 'Planeta Rojo' por el óxido de hierro",
       "Tiene dos pequeñas lunas: Fobos y Deimos",
@@ -91,6 +111,8 @@ const planetData = {
     distance: "778.5 millones de km del Sol",
     period: "12 años terrestres",
     temperature: "-110°C (promedio)",
+    realImage: jupiterImage,
+    source: "https://science.nasa.gov/jupiter/",
     facts: [
       "El planeta más grande del sistema solar",
       "Tiene más de 80 lunas conocidas",
@@ -108,6 +130,8 @@ const planetData = {
     distance: "1.432 mil millones de km del Sol",
     period: "29 años terrestres",
     temperature: "-140°C (promedio)",
+    realImage: saturnoImage,
+    source: "https://science.nasa.gov/saturn/",
     facts: [
       "Famoso por sus espectaculares anillos",
       "Tiene más de 80 lunas, incluyendo Titán",
@@ -125,6 +149,8 @@ const planetData = {
     distance: "2.867 mil millones de km del Sol",
     period: "84 años terrestres",
     temperature: "-195°C (promedio)",
+    realImage: uranoImage,
+    source: "https://science.nasa.gov/uranus/",
     facts: [
       "Rota de lado, con inclinación de 98 grados",
       "Tiene anillos débiles y 27 lunas conocidas",
@@ -142,6 +168,8 @@ const planetData = {
     distance: "4.515 mil millones de km del Sol",
     period: "165 años terrestres",
     temperature: "-200°C (promedio)",
+    realImage: neptuneImage,
+    source: "https://science.nasa.gov/neptune/",
     facts: [
       "El planeta más alejado del Sol",
       "Tiene los vientos más fuertes: hasta 2,100 km/h",
@@ -150,6 +178,26 @@ const planetData = {
       "Emite más energía de la que recibe del Sol"
     ],
     color: "#4169e1"
+  },
+  luna: {
+    name: "Luna",
+    type: "Satélite natural",
+    diameter: "3,474 km",
+    mass: "7.342 × 10²² kg",
+    distance: "384,400 km de la Tierra",
+    period: "27.3 días terrestres",
+    temperature: "120°C (día) / -230°C (noche)",
+    realImage: moonImage,
+    source: "https://science.nasa.gov/moon/",
+    facts: [
+      "Es el quinto satélite más grande del sistema solar",
+      "Siempre muestra la misma cara a la Tierra (rotación sincrónica)",
+      "Se formó hace 4.5 mil millones de años por un gran impacto",
+      "Se aleja de la Tierra 3.8 cm cada año",
+      "Sus fases lunares han sido usadas como calendario por milenios",
+      "El lado oscuro de la Luna no recibe señales de radio de la Tierra"
+    ],
+    color: "#c0c0c0"
   }
 };
 
@@ -294,6 +342,68 @@ export default function PlanetModal({ selectedPlanet, onClose }) {
           </div>
         </div>
 
+        {/* Sección de foto real */}
+        <div style={{ marginBottom: '20px' }}>
+          <h3 style={{ 
+            color: planet.color, 
+            marginBottom: '10px',
+            fontSize: '18px'
+          }}>
+            📸 Imagen Real
+          </h3>
+          <div style={{
+            border: `2px solid ${planet.color}40`,
+            borderRadius: '8px',
+            padding: '10px',
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            textAlign: 'center'
+          }}>
+            {planet.realImage ? (
+              <img 
+                src={planet.realImage}
+                alt={`Imagen real de ${planet.name}`}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '200px',
+                  borderRadius: '6px',
+                  objectFit: 'cover',
+                  border: `1px solid ${planet.color}60`
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+            ) : (
+              <div style={{
+                padding: '40px 20px',
+                fontSize: '14px',
+                opacity: 0.7,
+                color: planet.color
+              }}>
+                📷 Imagen en preparación
+                <br />
+                <span style={{ fontSize: '12px', opacity: 0.5 }}>
+                  Pronto se agregará una imagen real de {planet.name}
+                </span>
+              </div>
+            )}
+            <div style={{
+              display: planet.realImage ? 'none' : 'block',
+              padding: '40px 20px',
+              fontSize: '14px',
+              opacity: 0.7,
+              color: planet.color
+            }}>
+              📷 Imagen en preparación
+              <br />
+              <span style={{ fontSize: '12px', opacity: 0.5 }}>
+                Pronto se agregará una imagen real de {planet.name}
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Datos curiosos */}
         <div>
           <h3 style={{ 
@@ -316,6 +426,47 @@ export default function PlanetModal({ selectedPlanet, onClose }) {
             ))}
           </ul>
         </div>
+
+        {/* Fuente */}
+        {planet.source && (
+          <div style={{
+            marginTop: '20px',
+            paddingTop: '15px',
+            borderTop: `1px solid ${planet.color}40`,
+            fontSize: '12px'
+          }}>
+            <div style={{
+              color: planet.color,
+              fontWeight: 'bold',
+              marginBottom: '8px',
+              fontSize: '14px'
+            }}>
+              📚 Fuente de Información
+            </div>
+            <a 
+              href={planet.source}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#87ceeb',
+                textDecoration: 'none',
+                fontSize: '12px',
+                opacity: 0.9,
+                transition: 'all 0.2s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.color = planet.color;
+                e.target.style.textDecoration = 'underline';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.color = '#87ceeb';
+                e.target.style.textDecoration = 'none';
+              }}
+            >
+              🔗 NASA Science - {planet.name}
+            </a>
+          </div>
+        )}
 
         {/* Footer */}
         <div style={{
